@@ -6,8 +6,9 @@ interface Response{
 }
 
 export const getMemos =async (q:string = '') => {
+    console.log("Here is getMemos");
     const res:Response = await ky
-    .get('https://cgi.tsukuba.ac.jp/~s2111609/wp/final/api/memos.rb',{
+    .get('https://cgi.u.tsukuba.ac.jp/~s2111609/wp/final/api/memos.rb',{
         searchParams:{
             q: q
         }
