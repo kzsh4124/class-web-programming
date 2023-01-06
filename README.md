@@ -6,6 +6,11 @@
 
 自分で導入したパッケージ  
 - ky : ポストaxiosなhttp client  
+- React Router
+
+dev dependancies  
+- sass
+
 
 ## backend
 MIME Typeをapplication/jsonで返すことで、APIエンドポイントとして機能するようになっているRuby CGI。
