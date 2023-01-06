@@ -1,14 +1,18 @@
 import React from "react";
 import type Memo from "../types/Memo"
+import { Link } from "react-router-dom";
 
 
 const Title = (props:Memo) =>{
     //console.log("Title: ",props);
+
     return (
-        <div key={props.id}>
+        <>
+        <Link to={{pathname:`/memo/${props.id}`}} state={{id: props.id}}>
             <h3>{props.title}</h3>
-            <p>有効期限: {props.expire_date ? props.expire_date : '無期限'}</p>
-        </div>
+            </Link>
+            <p>有効期限: {props.expireDate ? props.expireDate : '無期限'}</p>
+        </>
 
     );
 }

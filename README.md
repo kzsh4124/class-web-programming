@@ -36,7 +36,7 @@ memo2:Memo,
 interface Memo{
     id: string
     title: string
-    expire_date: string
+    expireDate: string
     content: string
 }
 
@@ -52,7 +52,7 @@ return {status: string}
 
 POST /delete
 Param ={
-id: number 
+id: string
 }
 idに指定されたメモを消去
 

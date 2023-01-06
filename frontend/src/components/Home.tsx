@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import Titles from "./Titles";
-// type Props ={
-//     id: number;
-//     title: string;
-//     expire_date: string;
-//     content: string;
-// }
+import Post from "./Post";
+import type Memo from "../types/Memo";
+import type StateMemo from "../types/StateMemo";
 
-const Home: React.FC= () =>{
+const Home: React.FC<StateMemo> = ({memos, setMemos, searchWord, setSearchWord}) => {
 
-    return (
-        <div >
-            <Titles />
-        </div>
 
-    );
-}
+  return (
+    <div>
+      <Post
+        memos={memos}
+        setMemos={setMemos}
+        searchWord={searchWord}
+        setSearchWord={setSearchWord}
+      />
+      <Titles
+        memos={memos}
+        setMemos={setMemos}
+        searchWord={searchWord}
+        setSearchWord={setSearchWord}
+      />
+    </div>
+  );
+};
 
 export default Home;

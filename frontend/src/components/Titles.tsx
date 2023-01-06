@@ -1,11 +1,12 @@
 import { FC, useState, useEffect, SyntheticEvent, ChangeEvent } from "react";
 import ky from "ky";
 import type Memo from "../types/Memo";
+import type StateMemo from "../types/StateMemo";
 import { getMemos } from "../domains/getMemos";
 import Title from "./Title";
 
-const Titles: FC = () => {
-  const [memos, setMemos] = useState<Memo[] | []>([]);
+
+const Titles: FC<StateMemo> = ({memos, setMemos, searchWord, setSearchWord}) => {
   //console.log(memos);
   // APIを叩く
   useEffect(() => {
@@ -24,7 +25,7 @@ const Titles: FC = () => {
   }, []);
 
   // 検索ワードのロジック
-  const [searchWord, setSearchWord] = useState("");
+
 
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
@@ -52,10 +53,10 @@ const Titles: FC = () => {
       <h2>メモ一覧</h2>
       <form onSubmit={handleSubmit}>
         <input name="q" type="text" value={searchWord} onChange={handleChange}/>
-        <input type="submit"/>
+        <input type="submit" value="検索" />
       </form>
       {memos.map((memo) => (
-        <Title {...memo} />
+        <Title {...memo} key={memo.id} />
       ))}
     </div>
   );
