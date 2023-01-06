@@ -26,6 +26,7 @@ jobs:
           node-version: 18
           # yarnのキャッシュを効かすために設定 (npmのかたはnpmで)
           cache: yarn
+          cache-dependency-path: ./frontend/yarn.lock
       - name: yarn install
         run: yarn install
       - name: yarn build
